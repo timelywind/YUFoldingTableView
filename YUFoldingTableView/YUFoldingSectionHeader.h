@@ -14,7 +14,6 @@ typedef NS_ENUM(NSUInteger, YUFoldingSectionState) {
     YUFoldingSectionStateShow, // 打开
 };
 
-#pragma mark - ENUM YUFoldingSectionHeaderArrowPosition
 // 箭头的位置
 typedef NS_ENUM(NSUInteger, YUFoldingSectionHeaderArrowPosition) {
     
@@ -31,7 +30,7 @@ typedef NS_ENUM(NSUInteger, YUFoldingSectionHeaderArrowPosition) {
 
 @interface YUFoldingSectionHeader : UIView
 
-@property (nonatomic, strong)id<YUFoldingSectionHeaderDelegate> tapDelegate;
+@property (nonatomic, weak)id<YUFoldingSectionHeaderDelegate> tapDelegate;
 
 -(instancetype)initWithFrame:(CGRect)frame withTag:(NSInteger)tag;
 

@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "YUFoldingSectionHeader.h"
 
-
-#pragma mark - YUFoldingTableViewDelegate
-
 @class YUFoldingTableView;
 
 @protocol YUFoldingTableViewDelegate <NSObject>

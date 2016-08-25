@@ -18,6 +18,7 @@
 		C340435A1D6DB22C00D4E22F /* Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C34043551D6DB22C00D4E22F /* Arrow.png */; };
 		C340435B1D6DB22C00D4E22F /* YUFoldingSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C34043571D6DB22C00D4E22F /* YUFoldingSectionHeader.m */; };
 		C340435C1D6DB22C00D4E22F /* YUFoldingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C34043591D6DB22C00D4E22F /* YUFoldingTableView.m */; };
+		C357E25B1D6E848D00E47FC8 /* YUTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C357E25A1D6E848D00E47FC8 /* YUTestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		C34043571D6DB22C00D4E22F /* YUFoldingSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUFoldingSectionHeader.m; sourceTree = "<group>"; };
 		C34043581D6DB22C00D4E22F /* YUFoldingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUFoldingTableView.h; sourceTree = "<group>"; };
 		C34043591D6DB22C00D4E22F /* YUFoldingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUFoldingTableView.m; sourceTree = "<group>"; };
+		C357E2591D6E848D00E47FC8 /* YUTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUTestViewController.h; sourceTree = "<group>"; };
+		C357E25A1D6E848D00E47FC8 /* YUTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUTestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				C34043131D6DA29B00D4E22F /* AppDelegate.m */,
 				C34043151D6DA29B00D4E22F /* ViewController.h */,
 				C34043161D6DA29B00D4E22F /* ViewController.m */,
+				C357E2591D6E848D00E47FC8 /* YUTestViewController.h */,
+				C357E25A1D6E848D00E47FC8 /* YUTestViewController.m */,
 				C34043181D6DA29B00D4E22F /* Main.storyboard */,
 				C340431B1D6DA29B00D4E22F /* Assets.xcassets */,
 				C340431D1D6DA29B00D4E22F /* LaunchScreen.storyboard */,
@@ -294,6 +299,7 @@
 			files = (
 				C340435C1D6DB22C00D4E22F /* YUFoldingTableView.m in Sources */,
 				C34043171D6DA29B00D4E22F /* ViewController.m in Sources */,
+				C357E25B1D6E848D00E47FC8 /* YUTestViewController.m in Sources */,
 				C34043141D6DA29B00D4E22F /* AppDelegate.m in Sources */,
 				C340435B1D6DB22C00D4E22F /* YUFoldingSectionHeader.m in Sources */,
 				C34043111D6DA29B00D4E22F /* main.m in Sources */,
@@ -522,6 +528,7 @@
 				C340433B1D6DA29B00D4E22F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C340433C1D6DA29B00D4E22F /* Build configuration list for PBXNativeTarget "YUFoldingTableViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +537,7 @@
 				C340433E1D6DA29B00D4E22F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C340433F1D6DA29B00D4E22F /* Build configuration list for PBXNativeTarget "YUFoldingTableViewDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +546,7 @@
 				C34043411D6DA29B00D4E22F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
