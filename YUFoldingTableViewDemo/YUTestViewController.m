@@ -47,7 +47,7 @@
 }
 - (NSInteger )numberOfSectionForYUFoldingTableView:(YUFoldingTableView *)yuTableView
 {
-    return 10;
+    return 6;
 }
 - (NSInteger )yuFoldingTableView:(YUFoldingTableView *)yuTableView numberOfRowsInSection:(NSInteger )section
 {
