@@ -36,6 +36,10 @@
     
     [self.view addSubview:foldingTableView];
     foldingTableView.foldingDelegate = self;
+    
+    if (self.arrowPosition) {
+        foldingTableView.foldingState = YUFoldingSectionStateShow;
+    }
 }
 
 #pragma mark - YUFoldingTableViewDelegate / required（必须实现的代理）

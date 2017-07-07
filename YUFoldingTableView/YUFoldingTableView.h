@@ -74,4 +74,6 @@
 
 @property (nonatomic, weak) id<YUFoldingTableViewDelegate> foldingDelegate;
 
+@property (nonatomic, assign) YUFoldingSectionState foldingState;
+
 @end

@@ -55,17 +55,22 @@
     if (!_statusArray) {
         _statusArray = [NSMutableArray array];
     }
+    
+    if (!_foldingState) {
+        _foldingState = YUFoldingSectionStateFlod;
+    }
+    
     if (_statusArray.count) {
         if (_statusArray.count > self.numberOfSections) {
             [_statusArray removeObjectsInRange:NSMakeRange(self.numberOfSections - 1, _statusArray.count - self.numberOfSections)];
         }else if (_statusArray.count < self.numberOfSections) {
             for (NSInteger i = self.numberOfSections - _statusArray.count; i < self.numberOfSections; i++) {
-                [_statusArray addObject:[NSNumber numberWithInteger:YUFoldingSectionStateFlod]];
+                [_statusArray addObject:[NSNumber numberWithInteger:_foldingState]];
             }
         }
     }else{
         for (NSInteger i = 0; i < self.numberOfSections; i++) {
-            [_statusArray addObject:[NSNumber numberWithInteger:YUFoldingSectionStateFlod]];
+            [_statusArray addObject:[NSNumber numberWithInteger:_foldingState]];
         }
     }
     return _statusArray;
