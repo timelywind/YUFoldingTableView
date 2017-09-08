@@ -13,30 +13,11 @@
 		C340431A1D6DA29B00D4E22F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C34043181D6DA29B00D4E22F /* Main.storyboard */; };
 		C340431C1D6DA29B00D4E22F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C340431B1D6DA29B00D4E22F /* Assets.xcassets */; };
 		C340431F1D6DA29B00D4E22F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C340431D1D6DA29B00D4E22F /* LaunchScreen.storyboard */; };
-		C340432A1D6DA29B00D4E22F /* YUFoldingTableViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C34043291D6DA29B00D4E22F /* YUFoldingTableViewDemoTests.m */; };
-		C34043351D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C34043341D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests.m */; };
 		C340435A1D6DB22C00D4E22F /* Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C34043551D6DB22C00D4E22F /* Arrow.png */; };
 		C340435B1D6DB22C00D4E22F /* YUFoldingSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C34043571D6DB22C00D4E22F /* YUFoldingSectionHeader.m */; };
 		C340435C1D6DB22C00D4E22F /* YUFoldingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C34043591D6DB22C00D4E22F /* YUFoldingTableView.m */; };
 		C357E25B1D6E848D00E47FC8 /* YUTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C357E25A1D6E848D00E47FC8 /* YUTestViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C34043261D6DA29B00D4E22F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C34043041D6DA29B00D4E22F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C340430B1D6DA29B00D4E22F;
-			remoteInfo = YUFoldingTableViewDemo;
-		};
-		C34043311D6DA29B00D4E22F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C34043041D6DA29B00D4E22F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C340430B1D6DA29B00D4E22F;
-			remoteInfo = YUFoldingTableViewDemo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C340430C1D6DA29B00D4E22F /* YUFoldingTableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YUFoldingTableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,12 +30,6 @@
 		C340431B1D6DA29B00D4E22F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C340431E1D6DA29B00D4E22F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C34043201D6DA29B00D4E22F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C34043251D6DA29B00D4E22F /* YUFoldingTableViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YUFoldingTableViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C34043291D6DA29B00D4E22F /* YUFoldingTableViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFoldingTableViewDemoTests.m; sourceTree = "<group>"; };
-		C340432B1D6DA29B00D4E22F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C34043301D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YUFoldingTableViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C34043341D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFoldingTableViewDemoUITests.m; sourceTree = "<group>"; };
-		C34043361D6DA29B00D4E22F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C34043551D6DB22C00D4E22F /* Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrow.png; sourceTree = "<group>"; };
 		C34043561D6DB22C00D4E22F /* YUFoldingSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUFoldingSectionHeader.h; sourceTree = "<group>"; };
 		C34043571D6DB22C00D4E22F /* YUFoldingSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUFoldingSectionHeader.m; sourceTree = "<group>"; };
@@ -72,20 +47,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C34043221D6DA29B00D4E22F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C340432D1D6DA29B00D4E22F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -93,8 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				C340430E1D6DA29B00D4E22F /* YUFoldingTableViewDemo */,
-				C34043281D6DA29B00D4E22F /* YUFoldingTableViewDemoTests */,
-				C34043331D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests */,
 				C340430D1D6DA29B00D4E22F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,8 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				C340430C1D6DA29B00D4E22F /* YUFoldingTableViewDemo.app */,
-				C34043251D6DA29B00D4E22F /* YUFoldingTableViewDemoTests.xctest */,
-				C34043301D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,24 +91,6 @@
 				C34043101D6DA29B00D4E22F /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C34043281D6DA29B00D4E22F /* YUFoldingTableViewDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				C34043291D6DA29B00D4E22F /* YUFoldingTableViewDemoTests.m */,
-				C340432B1D6DA29B00D4E22F /* Info.plist */,
-			);
-			path = YUFoldingTableViewDemoTests;
-			sourceTree = "<group>";
-		};
-		C34043331D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C34043341D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests.m */,
-				C34043361D6DA29B00D4E22F /* Info.plist */,
-			);
-			path = YUFoldingTableViewDemoUITests;
 			sourceTree = "<group>";
 		};
 		C34043541D6DB22C00D4E22F /* YUFoldingTableView */ = {
@@ -186,42 +125,6 @@
 			productReference = C340430C1D6DA29B00D4E22F /* YUFoldingTableViewDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C34043241D6DA29B00D4E22F /* YUFoldingTableViewDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C340433C1D6DA29B00D4E22F /* Build configuration list for PBXNativeTarget "YUFoldingTableViewDemoTests" */;
-			buildPhases = (
-				C34043211D6DA29B00D4E22F /* Sources */,
-				C34043221D6DA29B00D4E22F /* Frameworks */,
-				C34043231D6DA29B00D4E22F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C34043271D6DA29B00D4E22F /* PBXTargetDependency */,
-			);
-			name = YUFoldingTableViewDemoTests;
-			productName = YUFoldingTableViewDemoTests;
-			productReference = C34043251D6DA29B00D4E22F /* YUFoldingTableViewDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		C340432F1D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C340433F1D6DA29B00D4E22F /* Build configuration list for PBXNativeTarget "YUFoldingTableViewDemoUITests" */;
-			buildPhases = (
-				C340432C1D6DA29B00D4E22F /* Sources */,
-				C340432D1D6DA29B00D4E22F /* Frameworks */,
-				C340432E1D6DA29B00D4E22F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C34043321D6DA29B00D4E22F /* PBXTargetDependency */,
-			);
-			name = YUFoldingTableViewDemoUITests;
-			productName = YUFoldingTableViewDemoUITests;
-			productReference = C34043301D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -233,14 +136,6 @@
 				TargetAttributes = {
 					C340430B1D6DA29B00D4E22F = {
 						CreatedOnToolsVersion = 7.3;
-					};
-					C34043241D6DA29B00D4E22F = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = C340430B1D6DA29B00D4E22F;
-					};
-					C340432F1D6DA29B00D4E22F = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = C340430B1D6DA29B00D4E22F;
 					};
 				};
 			};
@@ -258,8 +153,6 @@
 			projectRoot = "";
 			targets = (
 				C340430B1D6DA29B00D4E22F /* YUFoldingTableViewDemo */,
-				C34043241D6DA29B00D4E22F /* YUFoldingTableViewDemoTests */,
-				C340432F1D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -273,20 +166,6 @@
 				C340431C1D6DA29B00D4E22F /* Assets.xcassets in Resources */,
 				C340431A1D6DA29B00D4E22F /* Main.storyboard in Resources */,
 				C340435A1D6DB22C00D4E22F /* Arrow.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C34043231D6DA29B00D4E22F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C340432E1D6DA29B00D4E22F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,36 +185,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C34043211D6DA29B00D4E22F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C340432A1D6DA29B00D4E22F /* YUFoldingTableViewDemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C340432C1D6DA29B00D4E22F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C34043351D6DA29B00D4E22F /* YUFoldingTableViewDemoUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C34043271D6DA29B00D4E22F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C340430B1D6DA29B00D4E22F /* YUFoldingTableViewDemo */;
-			targetProxy = C34043261D6DA29B00D4E22F /* PBXContainerItemProxy */;
-		};
-		C34043321D6DA29B00D4E22F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C340430B1D6DA29B00D4E22F /* YUFoldingTableViewDemo */;
-			targetProxy = C34043311D6DA29B00D4E22F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C34043181D6DA29B00D4E22F /* Main.storyboard */ = {
@@ -465,52 +315,6 @@
 			};
 			name = Release;
 		};
-		C340433D1D6DA29B00D4E22F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = YUFoldingTableViewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gaoxin.YUFoldingTableViewDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YUFoldingTableViewDemo.app/YUFoldingTableViewDemo";
-			};
-			name = Debug;
-		};
-		C340433E1D6DA29B00D4E22F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = YUFoldingTableViewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gaoxin.YUFoldingTableViewDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YUFoldingTableViewDemo.app/YUFoldingTableViewDemo";
-			};
-			name = Release;
-		};
-		C34043401D6DA29B00D4E22F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = YUFoldingTableViewDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gaoxin.YUFoldingTableViewDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = YUFoldingTableViewDemo;
-			};
-			name = Debug;
-		};
-		C34043411D6DA29B00D4E22F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = YUFoldingTableViewDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gaoxin.YUFoldingTableViewDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = YUFoldingTableViewDemo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -528,24 +332,6 @@
 			buildConfigurations = (
 				C340433A1D6DA29B00D4E22F /* Debug */,
 				C340433B1D6DA29B00D4E22F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C340433C1D6DA29B00D4E22F /* Build configuration list for PBXNativeTarget "YUFoldingTableViewDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C340433D1D6DA29B00D4E22F /* Debug */,
-				C340433E1D6DA29B00D4E22F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C340433F1D6DA29B00D4E22F /* Build configuration list for PBXNativeTarget "YUFoldingTableViewDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C34043401D6DA29B00D4E22F /* Debug */,
-				C34043411D6DA29B00D4E22F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

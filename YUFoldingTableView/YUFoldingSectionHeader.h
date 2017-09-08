@@ -30,11 +30,11 @@ typedef NS_ENUM(NSUInteger, YUFoldingSectionHeaderArrowPosition) {
 
 @interface YUFoldingSectionHeader : UIView
 
-@property (nonatomic, weak)id<YUFoldingSectionHeaderDelegate> tapDelegate;
+@property (nonatomic, weak) id <YUFoldingSectionHeaderDelegate> tapDelegate;
 
--(instancetype)initWithFrame:(CGRect)frame withTag:(NSInteger)tag;
+- (instancetype)initWithFrame:(CGRect)frame tag:(NSInteger)tag;
 
--(void)setupWithBackgroundColor:(UIColor *)backgroundColor
+- (void)setupWithBackgroundColor:(UIColor *)backgroundColor
                     titleString:(NSString *)titleString
                      titleColor:(UIColor *)titleColor
                       titleFont:(UIFont *)titleFont

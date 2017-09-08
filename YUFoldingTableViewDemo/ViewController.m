@@ -56,7 +56,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = [NSString stringWithFormat:@"test %ld",indexPath.row + 1];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"test %ld (%@)",indexPath.row + 1, indexPath.row ? @"默认展开" : @"默认关闭"];
     return cell;
 }
 

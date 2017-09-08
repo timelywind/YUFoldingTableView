@@ -14,19 +14,19 @@
 
 @interface YUFoldingSectionHeader ()
 
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *descriptionLabel;
-@property (nonatomic, strong) UIImageView *arrowImageView;
-@property (nonatomic, strong) CAShapeLayer *sepertorLine;
-@property (nonatomic, assign) YUFoldingSectionHeaderArrowPosition arrowPosition;
-@property (nonatomic, assign) YUFoldingSectionState sectionState;
-@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
+@property (nonatomic, strong) UILabel  *titleLabel;
+@property (nonatomic, strong) UILabel  *descriptionLabel;
+@property (nonatomic, strong) UIImageView  *arrowImageView;
+@property (nonatomic, strong) CAShapeLayer  *sepertorLine;
+@property (nonatomic, assign) YUFoldingSectionHeaderArrowPosition  arrowPosition;
+@property (nonatomic, assign) YUFoldingSectionState  sectionState;
+@property (nonatomic, strong) UITapGestureRecognizer  *tapGesture;
 
 @end
 
 @implementation YUFoldingSectionHeader
 
--(instancetype)initWithFrame:(CGRect)frame withTag:(NSInteger)tag
+- (instancetype)initWithFrame:(CGRect)frame tag:(NSInteger)tag
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -35,78 +35,24 @@
     }
     return self;
 }
--(void)awakeFromNib
+- (void)awakeFromNib
 {
     [super awakeFromNib];
+    
     [self setupSubviewsWithArrowPosition:YUFoldingSectionHeaderArrowPositionRight];
     
 }
 
-
--(UILabel *)titleLabel
-{
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-        _titleLabel.backgroundColor = [UIColor clearColor];
-        _titleLabel.textAlignment = NSTextAlignmentLeft;
-    }
-    return _titleLabel;
-}
--(UILabel *)descriptionLabel
-{
-    if (!_descriptionLabel) {
-        _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-        _descriptionLabel.backgroundColor = [UIColor clearColor];
-        _descriptionLabel.textAlignment = NSTextAlignmentRight;
-    }
-    return _descriptionLabel;
-}
--(UIImageView *)arrowImageView
-{
-    if (!_arrowImageView) {
-        _arrowImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
-        _arrowImageView.backgroundColor = [UIColor clearColor];
-        _arrowImageView.contentMode = UIViewContentModeScaleAspectFit;
-    }
-    return _arrowImageView;
-}
--(CAShapeLayer *)sepertorLine
-{
-    if (!_sepertorLine) {
-        _sepertorLine = [CAShapeLayer layer];
-        _sepertorLine.strokeColor = [UIColor whiteColor].CGColor;
-        _sepertorLine.lineWidth = YUFoldingSepertorLineWidth;
-    }
-    return _sepertorLine;
-}
-
--(UITapGestureRecognizer *)tapGesture
-{
-    if (!_tapGesture) {
-        _tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTapped:)];
-    }
-    return _tapGesture;
-}
-
--(UIBezierPath *)getSepertorPath
-{
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:CGPointMake(0, self.frame.size.height - YUFoldingSepertorLineWidth)];
-    [path addLineToPoint:CGPointMake(self.frame.size.width, self.frame.size.height - YUFoldingSepertorLineWidth)];
-    return path;
-}
-
-
--(void)setupWithBackgroundColor:(UIColor *)backgroundColor
-                    titleString:(NSString *)titleString
-                     titleColor:(UIColor *)titleColor
-                      titleFont:(UIFont *)titleFont
-              descriptionString:(NSString *)descriptionString
-               descriptionColor:(UIColor *)descriptionColor
-                descriptionFont:(UIFont *)descriptionFont
-                     arrowImage:(UIImage *)arrowImage
-                  arrowPosition:(YUFoldingSectionHeaderArrowPosition)arrowPosition
-                   sectionState:(YUFoldingSectionState)sectionState
+- (void)setupWithBackgroundColor:(UIColor *)backgroundColor
+                     titleString:(NSString *)titleString
+                      titleColor:(UIColor *)titleColor
+                       titleFont:(UIFont *)titleFont
+               descriptionString:(NSString *)descriptionString
+                descriptionColor:(UIColor *)descriptionColor
+                 descriptionFont:(UIFont *)descriptionFont
+                      arrowImage:(UIImage *)arrowImage
+                   arrowPosition:(YUFoldingSectionHeaderArrowPosition)arrowPosition
+                    sectionState:(YUFoldingSectionState)sectionState
 {
     
     [self setBackgroundColor:backgroundColor];
@@ -140,7 +86,7 @@
     }
     
 }
--(void)setupSubviewsWithArrowPosition:(YUFoldingSectionHeaderArrowPosition)arrowPosition
+- (void)setupSubviewsWithArrowPosition:(YUFoldingSectionHeaderArrowPosition)arrowPosition
 {
     CGFloat labelWidth = (self.frame.size.width - YUFoldingMargin*2 - YUFoldingIconSize)/2;
     CGFloat labelHeight = self.frame.size.height;
@@ -166,7 +112,7 @@
     
 }
 
--(void)shouldExpand:(BOOL)shouldExpand
+- (void)shouldExpand:(BOOL)shouldExpand
 {
     
     [UIView animateWithDuration:0.2
@@ -192,7 +138,7 @@
 }
 
 
--(void)onTapped:(UITapGestureRecognizer *)gesture
+- (void)onTapped:(UITapGestureRecognizer *)gesture
 {
     [self shouldExpand:![NSNumber numberWithInteger:self.sectionState].boolValue];
     if (_tapDelegate && [_tapDelegate respondsToSelector:@selector(yuFoldingSectionHeaderTappedAtIndex:)]) {
@@ -201,5 +147,59 @@
     }
 }
 
+// MARK: -----------------------  getter
+
+- (UILabel *)titleLabel
+{
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+        _titleLabel.backgroundColor = [UIColor clearColor];
+        _titleLabel.textAlignment = NSTextAlignmentLeft;
+    }
+    return _titleLabel;
+}
+- (UILabel *)descriptionLabel
+{
+    if (!_descriptionLabel) {
+        _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+        _descriptionLabel.backgroundColor = [UIColor clearColor];
+        _descriptionLabel.textAlignment = NSTextAlignmentRight;
+    }
+    return _descriptionLabel;
+}
+- (UIImageView *)arrowImageView
+{
+    if (!_arrowImageView) {
+        _arrowImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
+        _arrowImageView.backgroundColor = [UIColor clearColor];
+        _arrowImageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _arrowImageView;
+}
+- (CAShapeLayer *)sepertorLine
+{
+    if (!_sepertorLine) {
+        _sepertorLine = [CAShapeLayer layer];
+        _sepertorLine.strokeColor = [UIColor whiteColor].CGColor;
+        _sepertorLine.lineWidth = YUFoldingSepertorLineWidth;
+    }
+    return _sepertorLine;
+}
+
+- (UITapGestureRecognizer *)tapGesture
+{
+    if (!_tapGesture) {
+        _tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTapped:)];
+    }
+    return _tapGesture;
+}
+
+- (UIBezierPath *)getSepertorPath
+{
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(0, self.frame.size.height - YUFoldingSepertorLineWidth)];
+    [path addLineToPoint:CGPointMake(self.frame.size.width, self.frame.size.height - YUFoldingSepertorLineWidth)];
+    return path;
+}
 
 @end
