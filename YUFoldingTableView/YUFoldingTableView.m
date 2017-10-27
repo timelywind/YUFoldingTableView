@@ -41,6 +41,16 @@
 
 - (void)setupDelegateAndDataSource
 {
+    // 适配iOS 11
+#ifdef __IPHONE_11_0
+    if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    self.estimatedRowHeight = 0;
+    self.estimatedSectionHeaderHeight = 0;
+    self.estimatedSectionFooterHeight = 0;
+#endif
+
     self.delegate = self;
     self.dataSource = self;
     if (self.style == UITableViewStylePlain) {
