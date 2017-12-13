@@ -3,12 +3,13 @@
 //  YUFoldingTableViewDemo
 //
 //  Created by administrator on 16/8/24.
-//  Copyright © 2016年 xuanYuLin. All rights reserved.
+//  Copyright © 2016年 timelywind. All rights reserved.
 //
 
 #import "ViewController.h"
 #import "YUFoldingTableView.h"
 #import "YUTestViewController.h"
+
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -32,8 +33,8 @@
 - (void)setupTableView
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    UITableView *tableView = [[YUFoldingTableView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64)];
+    CGFloat topHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 44;
+    UITableView *tableView = [[YUFoldingTableView alloc] initWithFrame:CGRectMake(0, topHeight, self.view.bounds.size.width, self.view.bounds.size.height - topHeight)];
     _tableView = tableView;
     tableView.rowHeight = 50;
     [self.view addSubview:tableView];

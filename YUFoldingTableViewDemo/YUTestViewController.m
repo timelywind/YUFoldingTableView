@@ -3,7 +3,7 @@
 //  YUFoldingTableViewDemo
 //
 //  Created by administrator on 16/8/25.
-//  Copyright © 2016年 xuanYuLin. All rights reserved.
+//  Copyright © 2016年 timelywind. All rights reserved.
 //
 
 #import "YUTestViewController.h"
@@ -30,8 +30,8 @@
 - (void)setupFoldingTableView
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    YUFoldingTableView *foldingTableView = [[YUFoldingTableView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64)];
+    CGFloat topHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 44;
+    YUFoldingTableView *foldingTableView = [[YUFoldingTableView alloc] initWithFrame:CGRectMake(0, topHeight, self.view.bounds.size.width, self.view.bounds.size.height - topHeight)];
     _foldingTableView = foldingTableView;
     
     [self.view addSubview:foldingTableView];
@@ -76,7 +76,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"Row %ld",indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Row %ld -- section %ld", indexPath.row, indexPath.section];
 
     return cell;
 }
@@ -92,5 +92,15 @@
     return @"detailText";
 }
 
+//- (UIColor *)yuFoldingTableView:(YUFoldingTableView *)yuTableView backgroundColorForHeaderInSection:(NSInteger)section
+//{
+//    
+//    return self.arrowPosition ? [UIColor whiteColor] : [UIColor colorWithRed:102/255.f green:102/255.f blue:255/255.f alpha:1.f];
+//}
+//
+//- (UIColor *)yuFoldingTableView:(YUFoldingTableView *)yuTableView textColorForTitleInSection:(NSInteger)section
+//{
+//    return self.arrowPosition ? [UIColor redColor] : [UIColor whiteColor];
+//}
 
 @end

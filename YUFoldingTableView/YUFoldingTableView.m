@@ -3,10 +3,12 @@
 //  YUFoldingTableView
 //
 //  Created by administrator on 16/8/24.
-//  Copyright © 2016年 liufengting. All rights reserved.
+//  Copyright © 2016年 timelywind. All rights reserved.
 //
 
 #import "YUFoldingTableView.h"
+
+static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
 
 @interface YUFoldingTableView () <YUFoldingSectionHeaderDelegate>
 
@@ -37,6 +39,11 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+}
+
 #pragma mark - 创建数据源和代理
 
 - (void)setupDelegateAndDataSource
@@ -50,12 +57,14 @@
     self.estimatedSectionHeaderHeight = 0;
     self.estimatedSectionFooterHeight = 0;
 #endif
-
     self.delegate = self;
     self.dataSource = self;
     if (self.style == UITableViewStylePlain) {
         self.tableFooterView = [[UIView alloc] init];
     }
+    
+    [self registerClass:[YUFoldingSectionHeader class] forHeaderFooterViewReuseIdentifier:YUFoldingSectionHeaderID];
+    
     // 添加监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onChangeStatusBarOrientationNotification:)  name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
 }
@@ -206,21 +215,19 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    YUFoldingSectionHeader *sectionHeaderView = [[YUFoldingSectionHeader alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, [self tableView:self heightForHeaderInSection:section])  tag:section];
-    
-    [sectionHeaderView setupWithBackgroundColor:[self backgroundColorForSection:section]
-                                    titleString:[self titleForSection:section]
-                                     titleColor:[self titleColorForSection:section]
-                                      titleFont:[self titleFontForSection:section]
-                              descriptionString:[self descriptionForSection:section]
-                               descriptionColor:[self descriptionColorForSection:section]
-                                descriptionFont:[self descriptionFontForSection:section]
-                                     arrowImage:[self arrowImageForSection:section]
-                                  arrowPosition:[self perferedArrowPosition]
-                                   sectionState:((NSNumber *)self.statusArray[section]).integerValue];
-    
+    YUFoldingSectionHeader *sectionHeaderView = [self dequeueReusableHeaderFooterViewWithIdentifier:YUFoldingSectionHeaderID];
+    [sectionHeaderView configWithBackgroundColor:[self backgroundColorForSection:section]
+                                     titleString:[self titleForSection:section]
+                                      titleColor:[self titleColorForSection:section]
+                                       titleFont:[self titleFontForSection:section]
+                               descriptionString:[self descriptionForSection:section]
+                                descriptionColor:[self descriptionColorForSection:section]
+                                 descriptionFont:[self descriptionFontForSection:section]
+                                      arrowImage:[self arrowImageForSection:section]
+                                   arrowPosition:[self perferedArrowPosition]
+                                    sectionState:((NSNumber *)self.statusArray[section]).integerValue
+                                    sectionIndex:section];
     sectionHeaderView.tapDelegate = self;
-    
     return sectionHeaderView;
 }
 
