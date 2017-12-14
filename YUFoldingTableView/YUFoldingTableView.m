@@ -167,7 +167,7 @@ static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
     if (_foldingDelegate && [_foldingDelegate respondsToSelector:@selector(yuFoldingTableView:arrowImageForSection:)]) {
         return [_foldingDelegate yuFoldingTableView:self arrowImageForSection:section];
     }
-    return [UIImage imageNamed:@"Arrow"];
+    return [UIImage imageNamed:@"YUFolding_arrow"];
 }
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource

@@ -13,7 +13,7 @@
 		C340431A1D6DA29B00D4E22F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C34043181D6DA29B00D4E22F /* Main.storyboard */; };
 		C340431C1D6DA29B00D4E22F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C340431B1D6DA29B00D4E22F /* Assets.xcassets */; };
 		C340431F1D6DA29B00D4E22F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C340431D1D6DA29B00D4E22F /* LaunchScreen.storyboard */; };
-		C340435A1D6DB22C00D4E22F /* Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C34043551D6DB22C00D4E22F /* Arrow.png */; };
+		C340435A1D6DB22C00D4E22F /* YUFolding_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C34043551D6DB22C00D4E22F /* YUFolding_arrow.png */; };
 		C340435B1D6DB22C00D4E22F /* YUFoldingSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C34043571D6DB22C00D4E22F /* YUFoldingSectionHeader.m */; };
 		C340435C1D6DB22C00D4E22F /* YUFoldingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C34043591D6DB22C00D4E22F /* YUFoldingTableView.m */; };
 		C357E25B1D6E848D00E47FC8 /* YUTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C357E25A1D6E848D00E47FC8 /* YUTestViewController.m */; };
@@ -30,7 +30,7 @@
 		C340431B1D6DA29B00D4E22F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C340431E1D6DA29B00D4E22F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C34043201D6DA29B00D4E22F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C34043551D6DB22C00D4E22F /* Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrow.png; sourceTree = "<group>"; };
+		C34043551D6DB22C00D4E22F /* YUFolding_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YUFolding_arrow.png; sourceTree = "<group>"; };
 		C34043561D6DB22C00D4E22F /* YUFoldingSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUFoldingSectionHeader.h; sourceTree = "<group>"; };
 		C34043571D6DB22C00D4E22F /* YUFoldingSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUFoldingSectionHeader.m; sourceTree = "<group>"; };
 		C34043581D6DB22C00D4E22F /* YUFoldingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUFoldingTableView.h; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		C34043541D6DB22C00D4E22F /* YUFoldingTableView */ = {
 			isa = PBXGroup;
 			children = (
-				C34043551D6DB22C00D4E22F /* Arrow.png */,
+				C34043551D6DB22C00D4E22F /* YUFolding_arrow.png */,
 				C34043561D6DB22C00D4E22F /* YUFoldingSectionHeader.h */,
 				C34043571D6DB22C00D4E22F /* YUFoldingSectionHeader.m */,
 				C34043581D6DB22C00D4E22F /* YUFoldingTableView.h */,
@@ -165,7 +165,7 @@
 				C340431F1D6DA29B00D4E22F /* LaunchScreen.storyboard in Resources */,
 				C340431C1D6DA29B00D4E22F /* Assets.xcassets in Resources */,
 				C340431A1D6DA29B00D4E22F /* Main.storyboard in Resources */,
-				C340435A1D6DB22C00D4E22F /* Arrow.png in Resources */,
+				C340435A1D6DB22C00D4E22F /* YUFolding_arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
