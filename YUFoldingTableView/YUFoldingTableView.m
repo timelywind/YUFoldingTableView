@@ -10,6 +10,8 @@
 
 static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
 
+static NSInteger addTag = 100;
+
 @interface YUFoldingTableView () <YUFoldingSectionHeaderDelegate>
 
 @property (nonatomic, strong) NSMutableArray *statusArray;
@@ -218,7 +220,7 @@ static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
     UIView *sectionHeaderView = nil;
     if (_foldingDelegate && [_foldingDelegate respondsToSelector:@selector(yuFoldingTableView:viewForHeaderInSection:)]) {
         sectionHeaderView = [_foldingDelegate yuFoldingTableView:self viewForHeaderInSection:section];
-        sectionHeaderView.tag = 100 + section;
+        sectionHeaderView.tag = addTag + section;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureAction:)];
         [sectionHeaderView addGestureRecognizer:tapGesture];
     } else {
@@ -264,12 +266,12 @@ static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
 
 - (void)tapGestureAction:(UIGestureRecognizer *)gesture
 {
-    [self yuFoldingSectionHeaderTappedAtIndex:gesture.view.tag - 100];
+    [self yuFoldingSectionHeaderTappedAtIndex:gesture.view.tag - addTag];
 }
 
 - (void)yuFoldingSectionHeaderTappedAtIndex:(NSInteger)index
 {
-    BOOL currentIsOpen = ((NSNumber *)self.statusArray[index]).boolValue;
+    BOOL currentIsOpen = ((NSNumber *)[self safeObjectWithArray:self.statusArray AtIndex:index]).boolValue;
     
     [self.statusArray replaceObjectAtIndex:index withObject:[NSNumber numberWithBool:!currentIsOpen]];
     
@@ -291,6 +293,19 @@ static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
     if (_foldingDelegate && [_foldingDelegate respondsToSelector:@selector(yuFoldingTableView:didSelectHeaderViewAtSection:)]) {
         [_foldingDelegate yuFoldingTableView:self didSelectHeaderViewAtSection:index];
     }
+}
+
+// MARK: -----------------------  helper
+
+- (id)safeObjectWithArray:(NSArray *)array AtIndex:(NSUInteger)index
+{
+    if(array.count == 0) {
+        return (nil);
+    }
+    if(index > MAX(array.count - 1, 0)) {
+        return (nil);
+    }
+    return ([array objectAtIndex:index]);
 }
 
 
