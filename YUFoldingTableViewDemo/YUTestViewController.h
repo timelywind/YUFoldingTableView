@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YUFoldingTableView.h"
 
-@interface YUTestViewController : UIViewController
+@interface YUTestViewController : UIViewController  <YUFoldingTableViewDelegate>
 
 @property (nonatomic, assign) YUFoldingSectionHeaderArrowPosition arrowPosition;
 

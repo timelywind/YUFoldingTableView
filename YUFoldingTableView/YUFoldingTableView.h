@@ -15,10 +15,6 @@
 
 @required
 /**
- *  箭头的位置
- */
-- (YUFoldingSectionHeaderArrowPosition)perferedArrowPositionForYUFoldingTableView:(YUFoldingTableView *)yuTableView;
-/**
  *  返回section的个数
  */
 - (NSInteger )numberOfSectionForYUFoldingTableView:(YUFoldingTableView *)yuTableView;
@@ -35,26 +31,43 @@
  */
 - (CGFloat )yuFoldingTableView:(YUFoldingTableView *)yuTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 /**
- *  header的标题
- */
-- (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView titleForHeaderInSection:(NSInteger )section;
-/**
  *  返回cell
  */
 - (UITableViewCell *)yuFoldingTableView:(YUFoldingTableView *)yuTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+@optional
+
 /**
  *  点击cell
  */
 - (void )yuFoldingTableView:(YUFoldingTableView *)yuTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
-@optional
+/**
+ *  点击sectionHeaderView
+ */
+- (void )yuFoldingTableView:(YUFoldingTableView *)yuTableView didSelectHeaderViewAtSection:(NSInteger)section;
+
+/**
+ *  返回HeaderView
+ */
+- (UIView *)yuFoldingTableView:(UITableView *)yuTableView viewForHeaderInSection:(NSInteger)section;
+
+/************* 下面是关于headerView一些属性的设置 ************/
+
+/**
+ *  header的标题
+ */
+- (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView titleForHeaderInSection:(NSInteger )section;
+
+/**
+ *  箭头的位置
+ */
+- (YUFoldingSectionHeaderArrowPosition)perferedArrowPositionForYUFoldingTableView:(YUFoldingTableView *)yuTableView;
 
 /**
  *  箭头图片
  */
 - (UIImage *)yuFoldingTableView:(YUFoldingTableView *)yuTableView arrowImageForSection:(NSInteger )section;
-
-// 下面是一些属性的设置
 
 - (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView descriptionForHeaderInSection:(NSInteger )section;
 

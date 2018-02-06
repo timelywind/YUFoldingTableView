@@ -50,9 +50,9 @@ static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
 {
     // 适配iOS 11
 #ifdef __IPHONE_11_0
-    if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
-        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }
+//    if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+//        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    }
     self.estimatedRowHeight = 0;
     self.estimatedSectionHeaderHeight = 0;
     self.estimatedSectionFooterHeight = 0;
@@ -170,7 +170,7 @@ static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
     return [UIImage imageNamed:@"YUFolding_arrow"];
 }
 
-#pragma mark - UITableViewDelegate,UITableViewDataSource
+#pragma mark - UITableViewDelegate / UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -215,19 +215,15 @@ static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    YUFoldingSectionHeader *sectionHeaderView = [self dequeueReusableHeaderFooterViewWithIdentifier:YUFoldingSectionHeaderID];
-    [sectionHeaderView configWithBackgroundColor:[self backgroundColorForSection:section]
-                                     titleString:[self titleForSection:section]
-                                      titleColor:[self titleColorForSection:section]
-                                       titleFont:[self titleFontForSection:section]
-                               descriptionString:[self descriptionForSection:section]
-                                descriptionColor:[self descriptionColorForSection:section]
-                                 descriptionFont:[self descriptionFontForSection:section]
-                                      arrowImage:[self arrowImageForSection:section]
-                                   arrowPosition:[self perferedArrowPosition]
-                                    sectionState:((NSNumber *)self.statusArray[section]).integerValue
-                                    sectionIndex:section];
-    sectionHeaderView.tapDelegate = self;
+    UIView *sectionHeaderView = nil;
+    if (_foldingDelegate && [_foldingDelegate respondsToSelector:@selector(yuFoldingTableView:viewForHeaderInSection:)]) {
+        sectionHeaderView = [_foldingDelegate yuFoldingTableView:self viewForHeaderInSection:section];
+        sectionHeaderView.tag = 100 + section;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureAction:)];
+        [sectionHeaderView addGestureRecognizer:tapGesture];
+    } else {
+        sectionHeaderView = [self normalHeaderViewWithTableView:tableView section:section];
+    }
     return sectionHeaderView;
 }
 
@@ -246,7 +242,30 @@ static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
 }
 
 
-#pragma mark - YUFoldingSectionHeaderDelegate
+#pragma mark - YUFoldingSectionHeader
+
+- (UIView *)normalHeaderViewWithTableView:(UITableView *)tableView section:(NSInteger)section
+{
+    YUFoldingSectionHeader *sectionHeaderView = [self dequeueReusableHeaderFooterViewWithIdentifier:YUFoldingSectionHeaderID];
+    [sectionHeaderView configWithBackgroundColor:[self backgroundColorForSection:section]
+                                     titleString:[self titleForSection:section]
+                                      titleColor:[self titleColorForSection:section]
+                                       titleFont:[self titleFontForSection:section]
+                               descriptionString:[self descriptionForSection:section]
+                                descriptionColor:[self descriptionColorForSection:section]
+                                 descriptionFont:[self descriptionFontForSection:section]
+                                      arrowImage:[self arrowImageForSection:section]
+                                   arrowPosition:[self perferedArrowPosition]
+                                    sectionState:((NSNumber *)self.statusArray[section]).integerValue
+                                    sectionIndex:section];
+    sectionHeaderView.tapDelegate = self;
+    return sectionHeaderView;
+}
+
+- (void)tapGestureAction:(UIGestureRecognizer *)gesture
+{
+    [self yuFoldingSectionHeaderTappedAtIndex:gesture.view.tag - 100];
+}
 
 - (void)yuFoldingSectionHeaderTappedAtIndex:(NSInteger)index
 {
@@ -267,6 +286,10 @@ static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
         }else{
             [self insertRowsAtIndexPaths:[NSArray arrayWithArray:rowArray] withRowAnimation:UITableViewRowAnimationTop];
         }
+    }
+    
+    if (_foldingDelegate && [_foldingDelegate respondsToSelector:@selector(yuFoldingTableView:didSelectHeaderViewAtSection:)]) {
+        [_foldingDelegate yuFoldingTableView:self didSelectHeaderViewAtSection:index];
     }
 }
 

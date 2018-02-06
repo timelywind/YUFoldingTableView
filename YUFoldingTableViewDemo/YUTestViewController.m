@@ -8,8 +8,7 @@
 
 #import "YUTestViewController.h"
 
-
-@interface YUTestViewController () <YUFoldingTableViewDelegate>
+@interface YUTestViewController ()
 
 @property (nonatomic, weak) YUFoldingTableView *foldingTableView;
 
@@ -43,12 +42,6 @@
 }
 
 #pragma mark - YUFoldingTableViewDelegate / required（必须实现的代理）
-// 返回箭头的位置
-- (YUFoldingSectionHeaderArrowPosition)perferedArrowPositionForYUFoldingTableView:(YUFoldingTableView *)yuTableView
-{
-    // 没有赋值，默认箭头在左
-    return self.arrowPosition ? :YUFoldingSectionHeaderArrowPositionLeft;
-}
 - (NSInteger )numberOfSectionForYUFoldingTableView:(YUFoldingTableView *)yuTableView
 {
     return 6;
@@ -65,27 +58,35 @@
 {
     return 50;
 }
-- (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView titleForHeaderInSection:(NSInteger)section
-{
-    return [NSString stringWithFormat:@"Title %ld",section];
-}
 - (UITableViewCell *)yuFoldingTableView:(YUFoldingTableView *)yuTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellID = @"cellID";
-    UITableViewCell *cell = [yuTableView dequeueReusableCellWithIdentifier:cellID];
+    static NSString *cellIdentifier = @"cellIdentifier";
+    UITableViewCell *cell = [yuTableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.textLabel.text = [NSString stringWithFormat:@"Row %ld -- section %ld", indexPath.row, indexPath.section];
 
     return cell;
 }
+#pragma mark - YUFoldingTableViewDelegate / optional （可选择实现的）
+
+- (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView titleForHeaderInSection:(NSInteger)section
+{
+    return [NSString stringWithFormat:@"Title %ld",section];
+}
+
 - (void )yuFoldingTableView:(YUFoldingTableView *)yuTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [yuTableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark - YUFoldingTableViewDelegate / optional （可选择实现的）
+// 返回箭头的位置
+- (YUFoldingSectionHeaderArrowPosition)perferedArrowPositionForYUFoldingTableView:(YUFoldingTableView *)yuTableView
+{
+    // 没有赋值，默认箭头在左
+    return self.arrowPosition ? :YUFoldingSectionHeaderArrowPositionLeft;
+}
 
 - (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView descriptionForHeaderInSection:(NSInteger )section
 {

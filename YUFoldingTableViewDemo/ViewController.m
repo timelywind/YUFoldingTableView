@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "YUFoldingTableView.h"
 #import "YUTestViewController.h"
-
+#import "YUCustomTestController.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -46,7 +46,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -58,13 +58,35 @@
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    cell.textLabel.text = [NSString stringWithFormat:@"test %ld (%@)",indexPath.row + 1, indexPath.row ? @"默认展开" : @"默认关闭"];
+    NSString *tempStr = @"默认关闭";
+    switch (indexPath.row) {
+        case 0:
+            tempStr = @"默认关闭";
+            break;
+        case 1:
+            tempStr = @"默认展开";
+            break;
+        case 2:
+            tempStr = @"自定义 sectionHeaderView";
+            break;
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"test %ld (%@)",indexPath.row + 1, tempStr];
+    
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    YUTestViewController *testVc = [[YUTestViewController alloc] init];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    YUTestViewController *testVc = nil;
+    if (indexPath.row < 2) {
+        testVc = [[YUTestViewController alloc] init];
+    } else {
+        testVc = [[YUCustomTestController alloc] init];
+    }
+    testVc.title = cell.textLabel.text;
     testVc.arrowPosition = indexPath.row;
     [self.navigationController pushViewController:testVc animated:YES];
 }
