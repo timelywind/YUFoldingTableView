@@ -27,11 +27,6 @@
 ## 3.实现YUFoldingTableView的代理，用法和UItableView类似
 ```
 #pragma mark - YUFoldingTableViewDelegate / required（必须实现的代理）
-// 返回箭头的位置
-- (YUFoldingSectionHeaderArrowPosition)perferedArrowPositionForYUFoldingTableView:(YUFoldingTableView *)yuTableView
-{
-    return YUFoldingSectionHeaderArrowPositionLeft;
-}
 - (NSInteger )numberOfSectionForYUFoldingTableView:(YUFoldingTableView *)yuTableView
 {
     return 5;
@@ -48,10 +43,6 @@
 {
     return 50;
 }
-- (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView titleForHeaderInSection:(NSInteger)section
-{
-    return [NSString stringWithFormat:@"Title %ld",section];
-}
 - (UITableViewCell *)yuFoldingTableView:(YUFoldingTableView *)yuTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellID = @"cellID";
@@ -63,13 +54,36 @@
     return cell;
 }
 
+#pragma mark - YUFoldingTableViewDelegate / optional （可选择实现的）
+// 自定义sectionHeaderView
+- (UIView *)yuFoldingTableView:(UITableView *)yuTableView viewForHeaderInSection:(NSInteger)section
+{
+    static NSString *headerIdentifier = @"headerIdentifier";
+    YUCustomHeaderView *headerFooterView = [yuTableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
+    if (headerFooterView == nil) {
+        headerFooterView = [[YUCustomHeaderView alloc] initWithReuseIdentifier:headerIdentifier];
+    }
+    headerFooterView.contentView.backgroundColor = [UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:0.2];
+    headerFooterView.title = [NSString stringWithFormat:@"标题 - %ld", section];
+    headerFooterView.descriptionText = [NSString stringWithFormat:@"自定义的sectionHeaderView - %ld", section];
+    return headerFooterView;
+}
+- (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView titleForHeaderInSection:(NSInteger)section
+{
+    return [NSString stringWithFormat:@"Title %ld",section];
+}
+// 返回箭头的位置
+- (YUFoldingSectionHeaderArrowPosition)perferedArrowPositionForYUFoldingTableView:(YUFoldingTableView *)yuTableView
+{
+    return YUFoldingSectionHeaderArrowPositionLeft;
+}
+
 - (void )yuFoldingTableView:(YUFoldingTableView *)yuTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [yuTableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-#pragma mark - YUFoldingTableViewDelegate / optional （可选择实现的）
 - (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView descriptionForHeaderInSection:(NSInteger )section
 {
     return @"detailText";
 }
+```
