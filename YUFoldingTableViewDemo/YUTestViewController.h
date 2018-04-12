@@ -13,4 +13,6 @@
 
 @property (nonatomic, assign) YUFoldingSectionHeaderArrowPosition arrowPosition;
 
+@property (nonatomic, assign) NSInteger index;
+
 @end

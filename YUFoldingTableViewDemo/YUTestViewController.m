@@ -39,6 +39,9 @@
     if (self.arrowPosition) {
         foldingTableView.foldingState = YUFoldingSectionStateShow;
     }
+    if (self.index == 2) {
+        foldingTableView.sectionStateArray = @[@"1", @"0", @"0"];
+    }
 }
 
 #pragma mark - YUFoldingTableViewDelegate / required（必须实现的代理）
@@ -65,7 +68,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"Row %ld -- section %ld", indexPath.row, indexPath.section];
+    cell.textLabel.text = [NSString stringWithFormat:@"Row %ld -- section %ld", (long)indexPath.row, (long)indexPath.section];
 
     return cell;
 }
@@ -73,7 +76,7 @@
 
 - (NSString *)yuFoldingTableView:(YUFoldingTableView *)yuTableView titleForHeaderInSection:(NSInteger)section
 {
-    return [NSString stringWithFormat:@"Title %ld",section];
+    return [NSString stringWithFormat:@"Title %ld",(long)section];
 }
 
 - (void )yuFoldingTableView:(YUFoldingTableView *)yuTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -89,4 +89,7 @@
 
 @property (nonatomic, assign) YUFoldingSectionState foldingState;
 
+// 控制默认section的展开状态
+@property (nonatomic, copy) NSArray *sectionStateArray;
+
 @end

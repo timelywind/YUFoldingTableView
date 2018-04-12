@@ -46,7 +46,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,6 +67,9 @@
             tempStr = @"默认展开";
             break;
         case 2:
+            tempStr = @"展开第一个";
+            break;
+        case 3:
             tempStr = @"自定义 sectionHeaderView";
             break;
     }
@@ -81,8 +84,9 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     YUTestViewController *testVc = nil;
-    if (indexPath.row < 2) {
+    if (indexPath.row < 3) {
         testVc = [[YUTestViewController alloc] init];
+        testVc.index = indexPath.row;
     } else {
         testVc = [[YUCustomTestController alloc] init];
     }

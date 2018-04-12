@@ -94,6 +94,21 @@ static NSInteger addTag = 100;
             [_statusArray addObject:[NSNumber numberWithInteger:_foldingState]];
         }
     }
+    
+    if (_sectionStateArray.count) {
+        NSMutableArray *tempStatusArrayM = [NSMutableArray array];
+        for (int i = 0; i < _statusArray.count; i++) {
+            if (i < _sectionStateArray.count) {
+                [tempStatusArrayM addObject:_sectionStateArray[i]];
+            } else {
+                [tempStatusArrayM addObject:@"0"];
+            }
+        }
+        _statusArray = tempStatusArrayM;
+        _sectionStateArray = nil;
+    }
+    
+    
     return _statusArray;
 }
 
