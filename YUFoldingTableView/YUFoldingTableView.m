@@ -9,8 +9,19 @@
 #import "YUFoldingTableView.h"
 
 static NSString *YUFoldingSectionHeaderID = @"YUFoldingSectionHeader";
-
 static NSInteger addTag = 100;
+
+id YUSafeObject(NSArray *array, NSInteger index) {
+    
+    if (![array isKindOfClass:[NSArray class]]) {
+        return nil;
+    }
+    if (array.count <= index) {
+        return nil;
+    }
+    
+    return [array objectAtIndex:index];
+}
 
 @interface YUFoldingTableView () <YUFoldingSectionHeaderDelegate>
 
@@ -199,7 +210,7 @@ static NSInteger addTag = 100;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (((NSNumber *)self.statusArray[section]).integerValue == YUFoldingSectionStateShow) {
+    if ([YUSafeObject(self.statusArray, section) integerValue] == YUFoldingSectionStateShow) {
         if (_foldingDelegate && [_foldingDelegate respondsToSelector:@selector(yuFoldingTableView:numberOfRowsInSection:)]) {
             return [_foldingDelegate yuFoldingTableView:self numberOfRowsInSection:section];
         }
@@ -273,7 +284,7 @@ static NSInteger addTag = 100;
                                  descriptionFont:[self descriptionFontForSection:section]
                                       arrowImage:[self arrowImageForSection:section]
                                    arrowPosition:[self perferedArrowPosition]
-                                    sectionState:((NSNumber *)self.statusArray[section]).integerValue
+                                    sectionState:[YUSafeObject(self.statusArray, section) integerValue]
                                     sectionIndex:section];
     sectionHeaderView.tapDelegate = self;
     return sectionHeaderView;
@@ -286,7 +297,10 @@ static NSInteger addTag = 100;
 
 - (void)yuFoldingSectionHeaderTappedAtIndex:(NSInteger)index
 {
-    BOOL currentIsOpen = ((NSNumber *)[self safeObjectWithArray:self.statusArray AtIndex:index]).boolValue;
+    if (self.statusArray.count <= index) {
+        return;
+    }
+    BOOL currentIsOpen = [YUSafeObject(self.statusArray, index) boolValue];
     
     [self.statusArray replaceObjectAtIndex:index withObject:[NSNumber numberWithBool:!currentIsOpen]];
     
@@ -308,19 +322,6 @@ static NSInteger addTag = 100;
     if (_foldingDelegate && [_foldingDelegate respondsToSelector:@selector(yuFoldingTableView:didSelectHeaderViewAtSection:)]) {
         [_foldingDelegate yuFoldingTableView:self didSelectHeaderViewAtSection:index];
     }
-}
-
-// MARK: -----------------------  helper
-
-- (id)safeObjectWithArray:(NSArray *)array AtIndex:(NSUInteger)index
-{
-    if(array.count == 0) {
-        return (nil);
-    }
-    if(index > MAX(array.count - 1, 0)) {
-        return (nil);
-    }
-    return ([array objectAtIndex:index]);
 }
 
 
