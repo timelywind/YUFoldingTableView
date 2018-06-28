@@ -19,13 +19,17 @@
     [super viewDidLoad];
 }
 
-- (UIView *)yuFoldingTableView:(UITableView *)yuTableView viewForHeaderInSection:(NSInteger)section
+- (UIView *)yuFoldingTableView:(YUFoldingTableView *)yuTableView viewForHeaderInSection:(NSInteger)section
 {
     static NSString *headerIdentifier = @"headerIdentifier";
     YUCustomHeaderView *headerFooterView = [yuTableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
     if (headerFooterView == nil) {
         headerFooterView = [[YUCustomHeaderView alloc] initWithReuseIdentifier:headerIdentifier];
     }
+    
+    NSLog(@"当前状态%@", yuTableView.statusArray[section]);
+    
+    
     headerFooterView.contentView.backgroundColor = [UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:0.2];
     headerFooterView.title = [NSString stringWithFormat:@"标题 - %ld", section];
     headerFooterView.descriptionText = [NSString stringWithFormat:@"自定义的sectionHeaderView - %ld", section];

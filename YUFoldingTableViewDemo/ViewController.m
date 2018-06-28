@@ -82,6 +82,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     YUTestViewController *testVc = nil;
     if (indexPath.row < 3) {

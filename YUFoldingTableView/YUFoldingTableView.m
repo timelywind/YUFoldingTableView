@@ -25,7 +25,7 @@ id YUSafeObject(NSArray *array, NSInteger index) {
 
 @interface YUFoldingTableView () <YUFoldingSectionHeaderDelegate>
 
-@property (nonatomic, strong) NSMutableArray *statusArray;
+@property (nonatomic, strong, readwrite) NSMutableArray *statusArray;
 
 @end
 
